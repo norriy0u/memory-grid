@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>MemoryGrid - Neon Memory Challenge</title>
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <audio id="bg-audio" loop preload="none">
+        <source src="https://cdn.pixabay.com/audio/2022/03/15/audio_cba9af7700.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="sfx-match" preload="auto">
+        <source src="data:audio/wav;base64,UklGRiQAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAAABkYXRhAAAAAA==" type="audio/wav">
+    </audio>
+
+    <!-- Particles -->
+    <canvas id="bg-canvas"></canvas>
+
+    <!-- Intro -->
+    <div id="intro-screen" class="screen active">
+        <div class="glass-card">
+            <div class="badge">VishwaNova 2026 • Games</div>
+            <h1 class="title-glow">MEMORY<span class="accent">::GRID</span></h1>
+            <p class="tagline">Match the neon symbols. Beat the clock. Prove your memory.</p>
+            <div class="difficulty-select">
+                <button class="diff-btn active" data-size="4">4×4</button>
+                <button class="diff-btn" data-size="6">6×6</button>
+            </div>
+            <button id="start-btn" class="glow-btn">INITIALIZE</button>
+            <p class="hint">🎵 Synthwave audio enabled</p>
+        </div>
+    </div>
+
+    <!-- Game -->
+    <div id="game-screen" class="screen">
+        <div class="game-hud">
+            <div class="hud-item">
+                <span class="hud-label">MOVES</span>
+                <span class="hud-value" id="moves-count">0</span>
+            </div>
+            <div class="hud-item">
+                <span class="hud-label">MATCHES</span>
+                <span class="hud-value" id="matches-count">0/8</span>
+            </div>
+            <div class="hud-item">
+                <span class="hud-label">TIME</span>
+                <span class="hud-value" id="time-display">00:00</span>
+            </div>
+        </div>
+        <div class="grid-container" id="grid-container"></div>
+    </div>
+
+    <!-- Results -->
+    <div id="results-screen" class="screen">
+        <div class="glass-card results-card">
+            <h2 class="results-title">MEMORY DECODED</h2>
+            <div class="results-stats">
+                <div class="result-stat glow-cyan">
+                    <span class="result-value" id="final-time">00:00</span>
+                    <span class="result-label">Time</span>
+                </div>
+                <div class="result-stat glow-green">
+                    <span class="result-value" id="final-moves">0</span>
+                    <span class="result-label">Moves</span>
+                </div>
+                <div class="result-stat glow-purple">
+                    <span class="result-value" id="final-score">0</span>
+                    <span class="result-label">Score</span>
+                </div>
+            </div>
+            <div class="star-rating" id="star-rating">★★★</div>
+            <button id="replay-btn" class="glow-btn">REPLAY</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
